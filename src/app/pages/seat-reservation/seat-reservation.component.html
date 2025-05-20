@@ -1,21 +1,22 @@
-<div class="reservation-container">
-  <h1>Seat Selection</h1>
-  <p><strong>Movie ID:</strong> {{ movieId }}</p>
-  <p><strong>Showtime:</strong> {{ showtime }}</p>
+<!-- <div class="seat-reservation text-white p-4">
+  <button routerLink="/movies" class="mb-4 text-blue-400 hover:underline">&larr; Back to movies</button>
 
-  <div class="seats-grid">
-    <div
-      class="seat"
+  <h1 class="text-2xl font-bold mb-2">{{ movie.title }}</h1>
+  <h2 class="text-lg mb-4">Showtime: <span class="font-medium text-yellow-400">{{ time }}</span></h2>
+
+  <h3 class="text-xl font-semibold mb-2">Choose your seat:</h3>
+  <div class="grid grid-cols-6 gap-3">
+    <button
       *ngFor="let seat of seats"
-      [class.selected]="selectedSeats.includes(seat.row + seat.number)"
-      (click)="toggleSeat(seat)"
+      [disabled]="!seat.available"
+      class="px-3 py-2 rounded-lg font-medium"
+      [ngClass]="{
+        'bg-green-500 hover:bg-green-600': seat.available,
+        'bg-gray-600 cursor-not-allowed': !seat.available
+      }"
+      (click)="reserveSeat(seat.number)"
     >
-      {{ seat.row + seat.number }}
-    </div>
+      {{ seat.number }}
+    </button>
   </div>
-
-  <button class="confirm-btn" (click)="confirmReservation()" [disabled]="selectedSeats.length === 0">
-    Confirm Reservation
-  </button>
-</div>
-
+</div> -->

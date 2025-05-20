@@ -1,38 +1,31 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-movie-detail',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './movie-detail.component.html',
-//   styleUrl: './movie-detail.component.css'
-// })
-// export class MovieDetailComponent {
-
-// }
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { MovieService } from '../../core/services/movie.service';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { Router, RouterModule,  } from '@angular/router';
 
 @Component({
   selector: 'app-movie-detail',
-  standalone: true,
-  imports:[RouterModule,CommonModule],
+   standalone:true,
+  imports:[CommonModule,RouterModule],
   templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.css']
+  styleUrls: ['./movie-detail.component.css','../movies/movies.component.css']
 })
-export class MovieDetailComponent {
-  @Input() movie: any;
+export class MovieDetailComponent implements OnInit {
+  movie: any;
+  selectedMovieId!: number;
 
-  constructor(private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private movieService: MovieService
+  ) {}
 
-  goToReservation(showtime: string) {
-    this.router.navigate(['/reserve'], {
-      queryParams: {
-        movieId: this.movie.id,
-        showtime
-      }
-    });
+  ngOnInit(): void {
+    this.selectedMovieId = Number(this.route.snapshot.paramMap.get('id'));
+    this.movie = this.movieService.getMovieById(this.selectedMovieId);
+  }
+
+  goToReservation(time: string): void {
+    this.router.navigate([`/movies/${this.selectedMovieId}/reserve/${time}`]);
   }
 }
-
