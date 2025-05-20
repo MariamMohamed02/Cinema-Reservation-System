@@ -1,0 +1,19 @@
+<!-- Header Section -->
+<header class="cinema-header">
+  <div class="header-content">
+    <img src="https://cdn-icons-png.flaticon.com/512/2503/2503529.png" alt="Cinema Logo" class="cinema-logo" />
+    <h1 class="cinema-name">CCE Cinema</h1>
+  </div>
+</header>
+
+<!-- Movies Section -->
+<div class="movies-container">
+  <div *ngFor="let movie of movies" class="movie-card">
+    <a [routerLink]="['/movies', movie.id]">
+      <img [src]="movie.image" alt="{{ movie.name }}" style="cursor: pointer;" />
+    </a>
+    <h3>{{ movie.name }}</h3>
+    <p>Rating: {{ movie.rating }}</p>
+    <p>Genre: {{ movie.genre }}</p>
+  </div>
+</div>

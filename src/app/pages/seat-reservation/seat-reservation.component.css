@@ -1,0 +1,50 @@
+.reservation-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  color: #e0e0e0;
+  text-align: center;
+}
+
+.reservation-container h1 {
+  color: #ff5c8d;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  margin: 30px 0;
+  justify-content: center;
+}
+
+.seat {
+  background-color: #444;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  color: #fff;
+}
+
+.seat.selected {
+  background-color: darkred;
+}
+
+.confirm-btn {
+  padding: 12px 24px;
+  background-color: darkred;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.confirm-btn:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}

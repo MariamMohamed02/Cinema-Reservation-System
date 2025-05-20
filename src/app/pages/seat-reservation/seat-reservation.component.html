@@ -1,0 +1,21 @@
+<div class="reservation-container">
+  <h1>Seat Selection</h1>
+  <p><strong>Movie ID:</strong> {{ movieId }}</p>
+  <p><strong>Showtime:</strong> {{ showtime }}</p>
+
+  <div class="seats-grid">
+    <div
+      class="seat"
+      *ngFor="let seat of seats"
+      [class.selected]="selectedSeats.includes(seat.row + seat.number)"
+      (click)="toggleSeat(seat)"
+    >
+      {{ seat.row + seat.number }}
+    </div>
+  </div>
+
+  <button class="confirm-btn" (click)="confirmReservation()" [disabled]="selectedSeats.length === 0">
+    Confirm Reservation
+  </button>
+</div>
+

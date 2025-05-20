@@ -1,0 +1,89 @@
+/* Base layout */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/* Header Bar */
+.cinema-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px 40px;
+  background-color: #000;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+
+/* Logo inside header */
+.cinema-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Header title */
+.cinema-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: darkred; /* Stylish soft pink */
+  margin: 0;
+}
+
+/* Movie list layout*/
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+  gap: 2rem;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Movie card */
+.movie-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
+}
+
+/* Movie image  */
+.movie-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;      /* show full image without cropping */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #111;
+}
+
+/* Movie title */
+.movie-card h3 {
+  margin: 0.5rem 0 0.3rem 0;
+  font-size: 1.1rem;
+  color: #ff5c8d;
+}
+
+/* Movie info */
+.movie-card p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}

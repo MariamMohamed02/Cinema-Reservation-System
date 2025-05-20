@@ -1,0 +1,18 @@
+
+
+<div class="movie-detail-container" *ngIf="movie">
+  <img [src]="movie.poster" alt="{{ movie.title }}" />
+  <div class="movie-info">
+    <h1>{{ movie.title }}</h1>
+    <p><strong>Description:</strong> {{ movie.description }}</p>
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Duration:</strong> {{ movie.duration }} min</p>
+    <h2>Select a Showtime</h2>
+    <div class="showtimes">
+      <button *ngFor="let time of movie.showtimes" (click)="goToReservation(time)">
+        {{ time }}
+      </button>
+    </div>
+  </div>
+</div>
+
