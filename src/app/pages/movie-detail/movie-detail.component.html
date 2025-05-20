@@ -1,0 +1,33 @@
+<!-- <div class="cinema-header">
+   <img src="https://cdn-icons-png.flaticon.com/512/2503/2503529.png" alt="Cinema Logo" class="cinema-logo" />
+    <h1 class="cinema-name">CCE Cinema</h1>
+</div> -->
+<div class="cinema-header">
+  <div class="cinema-logo-section">
+    <img src="https://cdn-icons-png.flaticon.com/512/2503/2503529.png" alt="Cinema Logo" class="cinema-logo" />
+    <h1 class="cinema-name">CCE Cinema</h1>
+  </div>
+  <div class="auth-buttons">
+     <button class="auth-button" routerLink="/signin">Sign In</button>
+    <button class="auth-button" routerLink="/signup">Register</button>
+  </div>
+</div>
+
+
+<div class="movie-detail-container" *ngIf="movie">
+  <img [src]="movie.image" [alt]="movie.title" />
+
+  <div class="movie-info">
+    <h1>{{ movie.name }}</h1>
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Rating:</strong> {{ movie.rating }}</p>
+    <p><strong>Description:</strong> {{ movie.description }}</p>
+
+    <h2>Available Showtimes</h2>
+    <div class="showtimes">
+      <button *ngFor="let time of movie.times" (click)="goToReservation(time)">
+        {{ time }}
+      </button>
+    </div>
+  </div>
+</div>
