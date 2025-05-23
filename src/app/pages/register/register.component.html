@@ -1,8 +1,10 @@
-<!-- <section class="signup d-flex align-items-center vh-100">
+<section class="signup d-flex align-items-center justify-content-center vh-100 w-100">
   <div class="container boxShadow">
-    <div class="signup-content row">
-      <div class="signup-form col-md-6">
-        <h2 class="form-title fs-2">Sign up</h2>
+    <div class="signup-content row align-items-center">
+
+      <!-- Form Column -->
+      <div class="signup-form col-12 col-md-6 mb-5 mb-md-0">
+        <h2 class="form-title fs-2 text-center">Sign up</h2>
         <form class="register-form mt-4" [formGroup]="registerForm" (ngSubmit)="registerSubmit(registerForm)">
 
           <!-- Username -->
@@ -82,6 +84,7 @@
             <p class="alert alert-danger">{{ apiErr }}</p>
           }
 
+          <!-- Submit Button -->
           <div class="d-flex justify-content-center align-items-center flex-column">
             <button class="btn btn-danger" [disabled]="registerForm.invalid">
               @if (isLoading) {
@@ -90,16 +93,19 @@
                 <span>Register</span>
               }
             </button>
-            <p class="my-3">Already have an account?
-              <a class="text-info" routerLink="/signin">Signin</a>
-            </p>
+            
           </div>
+
         </form>
       </div>
 
-      <div class="signup-image col-md-6 d-flex justify-content-center">
-        <figure><img src="assets/images/signup-image.jpg" alt="sign up image"/></figure>
+      <!-- Image Column -->
+      <div class="signup-image col-12 col-md-6 d-flex justify-content-center">
+        <figure>
+          <img src="assets/images/signin-image.jpg" alt="sign up image" class="img-fluid" />
+        </figure>
       </div>
+
     </div>
   </div>
-</section> 
+</section>
