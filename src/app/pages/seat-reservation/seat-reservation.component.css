@@ -1,3 +1,9 @@
+body {
+    background: #121212;
+    color: white;
+    margin: 0;
+    font-family: sans-serif;
+  }
 .container {
   padding: 20px;
   color: white;
@@ -33,3 +39,4 @@ button.selected {
   font-size: 16px;
   cursor: pointer;
 }
+

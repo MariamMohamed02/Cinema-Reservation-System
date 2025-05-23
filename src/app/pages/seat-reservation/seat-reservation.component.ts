@@ -1,3 +1,4 @@
+import { movies } from './../../core/interfaces/movies';
 // // import { Component, OnInit } from '@angular/core';
 // // import { ActivatedRoute, RouterLinkActive, RouterModule } from '@angular/router';
 // // import { HttpClient } from '@angular/common/http';
@@ -302,6 +303,7 @@ export class SeatReservationComponent implements OnInit {
   groupedSeats: GroupedSeats = {};
   selectedSeats: number[] = [];
   movieTitle: string = '';
+  
   showtime: string = '';
   movieId!: number;
   showtimeId!: number;
@@ -328,6 +330,7 @@ export class SeatReservationComponent implements OnInit {
   this.http.get<any>(url, { headers }).subscribe({
     next: (response) => {
       this.movieTitle = response.movie_title;
+
       this.showtime = response.showtime_start;
       this.groupedSeats = this.groupSeatsByRow(response.available_seats);
     },
