@@ -1,0 +1,40 @@
+.receipt {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.receipt h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2c3e50;
+}
+
+.receipt section {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.receipt h3 {
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.receipt p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.receipt img {
+  display: block;
+  margin-bottom: 12px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

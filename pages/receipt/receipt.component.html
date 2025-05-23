@@ -1,0 +1,22 @@
+<div class="receipt">
+  <h2>🎟️ Booking Receipt</h2>
+
+  <section>
+    <h3>👤 User Info</h3>
+    <p><strong>Name:</strong> {{ booking.user.name }}</p>
+    <p><strong>Email:</strong> {{ booking.user.email }}</p>
+    <p><strong>Phone:</strong> {{ booking.user.phone }}</p>
+  </section>
+
+  <section>
+    <h3>🎬 Movie Info</h3>
+    <img [src]="booking.movie.image" alt="movie poster" width="200">
+    <p><strong>Movie:</strong> {{ booking.movie.name }}</p>
+    <p><strong>Seats:</strong> {{ booking.reservedSeats.join(', ') }}</p>
+    <p><strong>Number of Seats:</strong> {{ booking.reservedSeats.length }}</p>
+    <p><strong>Seat Price:</strong> {{ booking.movie.seatPrice }} EGP</p>
+    <p><strong>Total Price:</strong> {{ totalPrice }} EGP</p>
+    <p><strong>Payment Method:</strong> {{ booking.paymentMethod }}</p>
+    <p><strong>Reservation Time:</strong> {{ booking.timeReserved | date:'medium' }}</p>
+  </section>
+</div>
