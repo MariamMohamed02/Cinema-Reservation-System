@@ -61,7 +61,7 @@
 
 .movie-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
+  box-shadow: 0 8px 20px #ff416c80;
 }
 
 /* Movie image  */
