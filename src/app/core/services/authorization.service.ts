@@ -29,13 +29,16 @@ export class AuthorizationService {
   }
 
   handleLogin(userInfo:authorization):Observable<any>{
-return this.httpClient.post(environment.baseUrl + 'signIn',userInfo)
+return this.httpClient.post("http://127.0.0.1:8000/api/login/",userInfo)
   }
 
   logOut():void{
     localStorage.removeItem('token')
-    this.router.navigate(['/signin'])
+    this.router.navigate(['/movies'])
   }
 
 
+
+
 }
+

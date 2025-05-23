@@ -17,16 +17,16 @@ private readonly router=inject(Router)
 isLoading:boolean=false;
 
 loginForm:FormGroup=this.formBuilder.group({
-  email:['',[Validators.required,Validators.email]],
-  password: ['',[Validators.required, Validators.pattern(/^\w{6,}$/)]]
+  username:['',[Validators.required]],
+  password: ['',[Validators.required ]]
 })
 
 loginSubmit(form: FormGroup):void{
   this.isLoading=true
   this.authorizationService.handleLogin(form.value).subscribe({
     next:(res)=>{
-      localStorage.setItem('token','3b8ny__'+ res.token)
-      this.router.navigate(['/notes'])
+      localStorage.setItem('token',res.access)
+      this.router.navigate(['/movies'])
     },
     error:(err)=>{
       this.isLoading=false

@@ -29,22 +29,22 @@ export class SignupComponent {
 
   })
 
-  registerSubmit(form:FormGroup){
-    this.isLoading=true
-    this.authorizationService.handleRegister(form.value).subscribe({
-      next:(res)=>{
-        console.log(res);
-        this.router.navigate(['/signin'])
-      },
-      error:(err)=>{
-        console.log(err);
-        this.apiErr=err.error.msg;
-        this.isLoading=false
+  // registerSubmit(form:FormGroup){
+  //   this.isLoading=true
+  //   this.authorizationService.handleRegister(form.value).subscribe({
+  //     next:(res)=>{
+  //       console.log(res);
+  //       this.router.navigate(['/signin'])
+  //     },
+  //     error:(err)=>{
+  //       console.log(err);
+  //       this.apiErr=err.error.msg;
+  //       this.isLoading=false
 
 
-      }
-    })
+  //     }
+  //   })
 
-  }
+ // }
 
 }

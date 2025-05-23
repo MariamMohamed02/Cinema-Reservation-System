@@ -1,4 +1,6 @@
-<section class="sign-in d-flex align-items-center vh-100">
+
+  <section class="sign-in d-flex align-items-center vh-100" style="background-color: #121212;">
+
   <div class="container boxShadow">
       <div class="signin-content row">
           <div class="signin-image d-flex justify-content-center col-md-6">
@@ -6,22 +8,24 @@
           </div>
           <div class="signin-form col-md-6">
               <h2 class="form-title">Sign in</h2>
+              <!-- <form class="register-form mt-4" id="login-form" [formGroup]="loginForm" (ngSubmit)="loginSubmit()"> -->
+
               <form class="register-form mt-4" id="login-form" [formGroup]="loginForm" (ngSubmit)="loginSubmit(loginForm)">
                   <div class="form-group d-flex align-items-center mb-4">
-                      <label for="email">
+                      <label for="username">
                           <span class="fa-solid fa-envelope"></span>
                       </label>
-                      <input  type="email" name="email" id="email" placeholder="Your Email" formControlName="email"/>
+                      <input  type="username" name="username" id="username" placeholder="Your username" formControlName="username"/>
                   </div>
                   <!--  -->
-                  @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched ) {
+                  @if (loginForm.get('username')?.errors && loginForm.get('username')?.touched ) {
 
                     <div class="alert alert-danger">
-                      @if (loginForm.get('email')?.getError('required')) {
-                        <p>Email is Required</p>
+                      @if (loginForm.get('username')?.getError('required')) {
+                        <p>Username is Required</p>
                       }
-                      @if (loginForm.get('email')?.getError('email')) {
-                        <p>Email must be Valid</p>
+                      @if (loginForm.get('username')?.getError('username')) {
+                        <p>Username must be Valid</p>
                       }
                     </div>
                   }
