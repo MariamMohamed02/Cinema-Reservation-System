@@ -4,5 +4,6 @@ export interface authorization {
     password: string;
     age: number;
     phone: string;
+    
 
 }

@@ -20,6 +20,7 @@
     <h1>{{ movie.title }}</h1>
     <p><strong>Genre:</strong> {{ movie.genre }}</p>
     <p><strong>Description:</strong> {{ movie.description }}</p>
+     <p>Rating: {{ movie.rating }}/5</p>
     <p><strong>Duration:</strong> {{ movie.duration }} mins</p>
 
     <h2>Available Showtimes</h2>
@@ -28,7 +29,7 @@
         {{ showtime.start_time | date: 'medium' }}
       </button>
     </div>
-  
+
 
 
     <p *ngIf="showtimeError" class="error">{{ showtimeError }}</p>

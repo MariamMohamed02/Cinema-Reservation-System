@@ -5,4 +5,5 @@ id: number;
   duration: number;
   genre: string;
   image_url: string | null;
+  rating:GLfloat;
 }
