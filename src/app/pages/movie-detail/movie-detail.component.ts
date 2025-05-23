@@ -76,8 +76,16 @@ export class MovieDetailComponent implements OnInit {
     });
   }
 goToReservation(movieId: number, showtimeId: number): void {
-  console.log(`Navigating to reservation for movie ID: ${movieId}, showtime ID: ${showtimeId}`);
-  this.router.navigate(['/reservation', movieId, showtimeId]);
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    console.log(`Navigating to reservation for movie ID: ${movieId}, showtime ID: ${showtimeId}`);
+    this.router.navigate(['/reservation', movieId, showtimeId]);
+  } else {
+    console.log('User not logged in. Redirecting to login page.');
+    this.router.navigate(['/signin']);
+  }
 }
+
 
 }
