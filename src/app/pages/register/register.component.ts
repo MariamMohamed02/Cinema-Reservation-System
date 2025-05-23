@@ -36,8 +36,9 @@ export class RegisterComponent {
         this.router.navigate(['/signin']);
       },
       error: err => {
+
         this.isLoading = false;
-        this.apiErr = err.error.message || 'Something went wrong. Please try again.';
+        this.apiErr = err.error.message || 'Username/Email Already Exists';
       }
     });
   }

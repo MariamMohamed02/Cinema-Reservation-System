@@ -30,9 +30,9 @@
           }
 
           <!-- API Error -->
-          <!-- @if(apiErr){
-            <p class="alert alert-danger">{{ apiErr }}</p>
-          } -->
+          @if(errorMSg){
+            <p class="alert alert-danger">{{ errorMSg }}</p>
+          }
 
           <!-- Submit Button -->
           <div class="d-flex justify-content-center align-items-center flex-column">
