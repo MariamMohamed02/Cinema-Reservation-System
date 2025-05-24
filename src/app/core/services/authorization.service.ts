@@ -1,5 +1,6 @@
+
 import { HttpClient } from '@angular/common/http';
-import { inject,Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { authorization } from '../interfaces/authorization';
 import { environment } from '../../../environments/environment.development';
@@ -10,32 +11,48 @@ import { Router } from '@angular/router';
 })
 export class AuthorizationService {
 
-  constructor() { }
-  private readonly httpClient=inject(HttpClient)
-  private readonly router=inject(Router)
+  private readonly httpClient = inject(HttpClient);
+  private readonly router = inject(Router);
 
-  userToken:BehaviorSubject<any> = new BehaviorSubject(null)
+  userToken: BehaviorSubject<any> = new BehaviorSubject(null);
 
-  setUserToken():void{
-    let token =localStorage.getItem('token')
-    if(token!==null){
+  constructor() {
+    this.setUserToken();
+  }
+
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined';
+  }
+
+  setUserToken(): void {
+    if (this.isBrowser()) {
+      const token = localStorage.getItem('token');
+      if (token !== null) {
         this.userToken.next(token);
+      }
     }
   }
 
-  //userInfo is the body from the given request. it is of the same type of the interface created
-  handleRegister(userInfo: authorization):Observable<any>{
-    return this.httpClient.post(environment.baseUrl + 'signUp',userInfo);
+  processLoginToken(token: string): void {
+    if (this.isBrowser()) {
+      localStorage.setItem('token', token);
+      this.userToken.next(token); // Notify subscribers like navbar
+    }
   }
 
-  handleLogin(userInfo:authorization):Observable<any>{
-return this.httpClient.post(environment.baseUrl + 'signIn',userInfo)
+  handleRegister(userInfo: authorization): Observable<any> {
+    return this.httpClient.post(environment.baseUrl + 'signUp', userInfo);
   }
 
-  logOut():void{
-    localStorage.removeItem('token')
-    this.router.navigate(['/signin'])
+  handleLogin(userInfo: authorization): Observable<any> {
+    return this.httpClient.post("http://127.0.0.1:8000/api/login/", userInfo);
   }
 
-
+  logOut(): void {
+    if (this.isBrowser()) {
+      localStorage.removeItem('token');
+    }
+    this.userToken.next(null); // Notify logout
+    this.router.navigate(['/movies']);
+  }
 }

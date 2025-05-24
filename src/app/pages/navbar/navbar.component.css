@@ -1,13 +1,5 @@
 /* Base layout */
-:host {
-  display: block;
-  min-height: 100vh;
-  background: #121212;
-  color: #e0e0e0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 0;
-  margin: 0;
-}
+
 
 /* Header Bar */
 .cinema-header {
@@ -61,7 +53,7 @@
 
 .movie-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px #ff416c80;
+  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
 }
 
 /* Movie image  */

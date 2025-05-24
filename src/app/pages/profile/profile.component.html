@@ -1,0 +1,41 @@
+<!-- <div class="profile-container">
+  <h2 class="profile-title">Welcome, {{ username }}, Below are your Reservations:</h2>
+
+  <div *ngIf="reservations.length === 0">
+    <p>You have no reservations yet.</p>
+  </div>
+
+  <div class="reservation-card" *ngFor="let res of reservations">
+    <div class="movie-info">
+      <img [src]="res.showtime.movie.image_url" alt="Movie Image" />
+      <div>
+        <h4>{{ res.showtime.movie.title }}</h4>
+        <p><strong>Showtime:</strong> {{ formatDate(res.showtime.start_time) }}</p>
+        <p><strong>Seats:</strong> {{ formatSeats(res.seats) }}</p>
+        <p><strong>Reserved at:</strong> {{ formatDate(res.reserved_at) }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="profile-container">
+  <h2 class="profile-title">Welcome, {{ username }}, Below are your Reservations:</h2>
+
+  <div *ngIf="reservations.length === 0">
+    <p>You have no reservations yet.</p>
+  </div>
+
+  <div class="reservation-grid">
+    <div class="reservation-card" *ngFor="let res of reservations">
+      <div class="movie-info">
+        <img [src]="res.showtime.movie.image_url" alt="Movie Image" />
+        <div>
+          <h4>{{ res.showtime.movie.title }}</h4>
+          <p><strong>Showtime:</strong> {{ formatDate(res.showtime.start_time) }}</p>
+          <p><strong>Seats:</strong> {{ formatSeats(res.seats) }}</p>
+          <p><strong>Reserved at:</strong> {{ formatDate(res.reserved_at) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,35 @@
-<!-- <div class="seat-reservation text-white p-4">
-  <button routerLink="/movies" class="mb-4 text-blue-400 hover:underline">&larr; Back to movies</button>
+<div class="w-100 py-5 px-4" style="background-color: #121212; color: white;min-height: 100vh;">
+  <div class="row gx-5">
 
-  <h1 class="text-2xl font-bold mb-2">{{ movie.title }}</h1>
-  <h2 class="text-lg mb-4">Showtime: <span class="font-medium text-yellow-400">{{ time }}</span></h2>
+    <!-- Left: Movie Info and Confirm Button -->
+    <div class="col-md-4 text-center mb-4 mb-md-0 d-flex flex-column align-items-center">
 
-  <h3 class="text-xl font-semibold mb-2">Choose your seat:</h3>
-  <div class="grid grid-cols-6 gap-3">
-    <button
-      *ngFor="let seat of seats"
-      [disabled]="!seat.available"
-      class="px-3 py-2 rounded-lg font-medium"
-      [ngClass]="{
-        'bg-green-500 hover:bg-green-600': seat.available,
-        'bg-gray-600 cursor-not-allowed': !seat.available
-      }"
-      (click)="reserveSeat(seat.number)"
-    >
-      {{ seat.number }}
-    </button>
+      <h2>{{ movieTitle }}</h2>
+      <p >Showtime: {{ showtime }}</p>
+
+      <button
+        class="btn btn-success "
+        (click)="confirmSelection()"
+        [disabled]="selectedSeats.length === 0">
+        Confirm Selection
+      </button>
+    </div>
+
+    <!-- Right: Seat Selection Area -->
+    <div class="col-md-8">
+      <div *ngFor="let row of groupedSeats | keyvalue" class="mb-3 d-flex align-items-center">
+        <div class="me-3 fw-bold" style="width: 60px;">Row {{ row.key }}</div>
+        <div class="seat-row d-flex flex-wrap gap-2">
+          <button
+            *ngFor="let seat of row.value"
+            [ngClass]="{ 'selected': isSelected(seat.id) }"
+            (click)="toggleSeatSelection(seat.id)"
+            class="btn btn-outline-primary">
+            {{ seat.number }}
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div> -->
+</div>

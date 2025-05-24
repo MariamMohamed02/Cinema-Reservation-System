@@ -1,0 +1,111 @@
+<section class="signup d-flex align-items-center justify-content-center vh-100 w-100">
+  <div class="container boxShadow">
+    <div class="signup-content row align-items-center">
+
+      <!-- Form Column -->
+      <div class="signup-form col-12 col-md-6 mb-5 mb-md-0">
+        <h2 class="form-title fs-2 text-center">Sign up</h2>
+        <form class="register-form mt-4" [formGroup]="registerForm" (ngSubmit)="registerSubmit(registerForm)">
+
+          <!-- Username -->
+          <div class="form-group d-flex align-items-center mb-4">
+            <label for="username"><span class="fa-solid fa-user"></span></label>
+            <input type="text" id="username" placeholder="Username" formControlName="username" />
+          </div>
+          @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
+            <div class="alert alert-danger">
+              <p *ngIf="registerForm.get('username')?.errors?.['required']">Username is required</p>
+              <p *ngIf="registerForm.get('username')?.errors?.['minlength'] || registerForm.get('username')?.errors?.['maxlength']">
+                Username should be between 3 to 20 characters
+              </p>
+            </div>
+          }
+
+          <!-- Email -->
+          <div class="form-group d-flex align-items-center mb-4">
+            <label for="email"><span class="fa-solid fa-envelope"></span></label>
+            <input type="email" id="email" placeholder="Email" formControlName="email" />
+          </div>
+          @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+            <div class="alert alert-danger">
+              <p *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</p>
+              <p *ngIf="registerForm.get('email')?.errors?.['email']">Invalid email format</p>
+            </div>
+          }
+
+          <!-- Full Name -->
+          <div class="form-group d-flex align-items-center mb-4">
+            <label for="full_name"><span class="fa-solid fa-signature"></span></label>
+            <input type="text" id="full_name" placeholder="Full Name" formControlName="full_name" />
+          </div>
+          @if (registerForm.get('full_name')?.errors && registerForm.get('full_name')?.touched) {
+            <div class="alert alert-danger">
+              <p *ngIf="registerForm.get('full_name')?.errors?.['required']">Full name is required</p>
+            </div>
+          }
+
+          <!-- Password -->
+          <div class="form-group d-flex align-items-center mb-4">
+            <label for="password"><span class="fa-solid fa-lock"></span></label>
+            <input type="password" id="password" placeholder="Password" formControlName="password" />
+          </div>
+          @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+            <div class="alert alert-danger">
+              <p *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</p>
+              <p *ngIf="registerForm.get('password')?.errors?.['pattern']">Password should be at least 6 characters</p>
+            </div>
+          }
+
+          <!-- Phone -->
+          <div class="form-group d-flex align-items-center mb-4">
+            <label for="phone"><span class="fa-solid fa-phone"></span></label>
+            <input type="tel" id="phone" placeholder="Phone" formControlName="phone" />
+          </div>
+          @if (registerForm.get('phone')?.errors && registerForm.get('phone')?.touched) {
+            <div class="alert alert-danger">
+              <p *ngIf="registerForm.get('phone')?.errors?.['required']">Phone is required</p>
+              <p *ngIf="registerForm.get('phone')?.errors?.['pattern']">Invalid Egyptian phone number</p>
+            </div>
+          }
+
+          <!-- Favorite Genre -->
+          <div class="form-group d-flex align-items-center mb-4">
+            <label for="favorite_genre"><span class="fa-solid fa-heart"></span></label>
+            <input type="text" id="favorite_genre" placeholder="Favorite Genre" formControlName="favorite_genre" />
+          </div>
+          @if (registerForm.get('favorite_genre')?.errors && registerForm.get('favorite_genre')?.touched) {
+            <div class="alert alert-danger">
+              <p>Favorite genre is required</p>
+            </div>
+          }
+
+          <!-- API Error -->
+          @if(apiErr){
+            <p class="alert alert-danger">{{ apiErr }}</p>
+          }
+
+          <!-- Submit Button -->
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <button class="btn btn-danger" [disabled]="registerForm.invalid">
+              @if (isLoading) {
+                <i class="fa fa-spinner fa-spin"></i>
+              } @else {
+                <span>Register</span>
+              }
+            </button>
+            
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Image Column -->
+      <div class="signup-image col-12 col-md-6 d-flex justify-content-center">
+        <figure>
+          <img src="assets/images/signin-image.jpg" alt="sign up image" class="img-fluid" />
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>
