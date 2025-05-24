@@ -1,17 +1,4 @@
 
-<!-- <div class="movie-detail-container" *ngIf="movie">
-  <img [src]="movie.image_url" [alt]="movie.title" class="movie-poster" />
-
-  <div class="movie-info">
-    <h1>{{ movie.title }}</h1>
-    <p><strong>Genre:</strong> {{ movie.genre }}</p>
-    <p><strong>Description:</strong> {{ movie.description }}</p>
-    <p><strong>Duration:</strong> {{ movie.duration }}</p>
-
-
-  </div>
-</div> -->
-
 
 <div class="movie-detail-container" *ngIf="movie">
   <img [src]="movie.image_url" [alt]="movie.title" class="movie-poster" />
@@ -29,7 +16,6 @@
         {{ showtime.start_time | date: 'medium' }}
       </button>
     </div>
-
 
 
     <p *ngIf="showtimeError" class="error">{{ showtimeError }}</p>

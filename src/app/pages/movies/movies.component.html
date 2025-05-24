@@ -1,15 +1,4 @@
 
-
-<!--
-<div class="movies-container">
-  <div class="movie-card" *ngFor="let movie of movies" (click)="goToMovieDetails(movie.id)">
-    <img [src]="movie.image" [alt]="movie.name" />
-    <h3>{{ movie.name }}</h3>
-    <p>Genre: {{ movie.genre }}</p>
-    <p>Rating: {{ movie.rating }}</p>
-  </div>
-</div> -->
-
 <div class="movies-container">
   <div class="movie-card" *ngFor="let movie of movies" (click)="goToMovieDetails(movie)">
     <img [src]="movie.image_url || defaultImage" [alt]="movie.title" />
